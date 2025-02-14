@@ -1,3 +1,3 @@
-# Zumordah
+# ZUMORDAH PLANET 
 ![reading](./pic.png)
  
