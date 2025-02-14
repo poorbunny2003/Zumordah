@@ -10,13 +10,12 @@ import SignUp from "./components/SignUp";
 
 const App = () => {
   return (
-    <div>
-      <Header />
+   
       <main>
         
         <Acceuil />
       </main>
-    </div>
+ 
   );
 };
 
