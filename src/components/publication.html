@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نشر نصوصك</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .publish-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .publish-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 90%;
+            padding: 15px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .form-group button {
+            width: calc(70% - 20px);
+            padding: 10px;
+            background-color: #750a45;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #d16ebc;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #750a45;
+            color: white;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            background-color:#ffffff;
+            padding: 0 20px;
+        }
+        nav a {
+            color: rgb(0, 0, 0);
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: fv#8d8888;
+        }
+        header {
+            background-color:  #750a45 ;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="publish-container">
+        <h1>نشر نص </h1>
+        <form id="publishForm">
+            <div class="form-group">
+                <label for="title">العنوان</label>
+                <input type="text" id="title" name="title" placeholder="أدخل عنوان النص" required>
+            </div>
+            <div class="form-group">
+                <label for="content">المحتوى</label>
+                <textarea id="content" name="content" placeholder="اكتب نصك هنا..." required></textarea>
+            </div>
+            <div class="form-group">
+              <center>  <button type="submit">نشر</button></center>
+            </div>
+        </form>
+        <div class="message" id="successMessage" style="display: none;">تم نشر نصك بنجاح  &hearts; </div>
+    </div>
+
+    <script>
+        document.getElementById('publishForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+          
+            setTimeout(() => {
+                console.log('  تم نشر النص:', { title, content });
+
+               
+                const message = document.getElementById('successMessage');
+                message.style.display = 'block';
+
+               
+                document.getElementById('publishForm').reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

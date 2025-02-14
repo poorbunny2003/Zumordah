@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>الصفحة الرئيسية - نصوص الكتاب</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            direction: rtl; 
+            text-align: right; 
+        }
+        header {
+            background-color:  #750a45 ;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            background-color:#ffffff;
+            padding: 0 20px;
+        }
+        nav a {
+            color: rgb(0, 0, 0);
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: fv#8d8888;
+        }
+        a {
+            color: rgb(21, 137, 126);
+            text-decoration: none;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .text-preview {
+            background-color: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+        .text-preview h2 {
+            width: 50%; 
+        }
+        .reaction-comment-section {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            margin-top: 10px;
+        }
+        .reaction-buttons button {
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+        .reaction-buttons button.liked {
+            color: #750a45;
+        }
+        .reaction-buttons button:not(.liked) {
+            color: gray;
+        }
+        .like-counter {
+            font-size: 1em;
+            color: #333;
+        }
+        .comment-section {
+            display: flex;
+            flex-direction: row; 
+            align-items: center; 
+            margin-top: 5px; 
+        }
+        .comment-section textarea {
+            width: 50%; 
+            height: 20px; 
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: right; 
+            margin-right: 10px; 
+            resize: none;
+        }
+        .comment-section button {
+            padding: 5px 15px;
+            background-color: #750a45; 
+            color: white;
+            border: none;
+            margin-left: 10px; 
+            cursor: pointer;
+        }
+        .comment-section button:hover {
+            background-color: #d16ebc;
+        }
+        .comment-list {
+            margin-top: 15px; 
+            padding: 0;
+            list-style: none;
+            display: none; 
+        }
+        .comment {
+            font-size: 0.9em;
+            margin-bottom: 10px; 
+            padding: 10px; 
+            color: #333;
+            text-align: right; 
+            background-color: #f9f9f9; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            position: relative;
+        }
+        .comment .edit-delete {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        .comment .edit-delete button {
+            background-color: #750a45;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            padding: 3px 8px;
+        }
+        .comment .edit-delete button:hover {
+            background-color: #d16ebc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #750a45;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>زُمُرُّد</h1>
+    </header>
+
+     <nav>
+        <a href="#accueil">    الصفحة الرئيسية    </a>
+        <a href="#auteurs">الكاتب    </a>
+        <a href="login.html">الدخول إلى حسابي    </a>
+        <a href="contact.html">   اتصل بنا   </a>
+    </nav>
+
+    <div class="main-content" id="accueil">
+       <center> <h2>كتابات زُمُرُّدَة...</h2></center>
+
+        <div class="text-preview">
+            <div>
+                <h2>عنوان النص 1</h2>
+                <p>مقتطف من النص 1... <a href="#">قراءة المزيد</a></p>
+            </div>
+
+           
+            <div class="reaction-comment-section">
+                <div class="reaction-buttons">
+                    <button onclick="toggleLike('like-counter-1', this)">&#10084;</button>
+                    <span class="like-counter" id="like-counter-1">0</span>
+                </div>
+                <div class="comment-section">
+                    <textarea id="comment-input-1" placeholder="اكتب تعليقك هنا..."></textarea>
+                    <button onclick="addComment('comment-list-1', 'comment-input-1')">نشر</button>
+                    <a href="javascript:void(0);" onclick="toggleComments('comment-list-1')">
+                        التعليقات (<span id="comment-count-1">0</span>)
+                    </a>
+                </div>
+            </div>
+
+            
+            <ul class="comment-list" id="comment-list-1"></ul>
+        </div>
+
+        <div class="text-preview">
+            <div>
+                <h2>عنوان النص 2</h2>
+                <p>مقتطف من النص 2... <a href="#">قراءة المزيد</a></p>
+            </div>
+
+            <div class="reaction-comment-section">
+                <div class="reaction-buttons">
+                    <button onclick="toggleLike('like-counter-2', this)">&#10084;</button>
+                    <span class="like-counter" id="like-counter-2">0</span>
+                </div>
+                <div class="comment-section">
+                    <textarea  id="comment-input-2" placeholder="اكتب تعليقك هنا..." > </textarea>
+                    <button onclick="addComment('comment-list-2', 'comment-input-2')">نشر</button>
+                    <a href="javascript:void(0);" onclick="toggleComments('comment-list-2')">
+                        التعليقات (<span id="comment-count-2">0</span>)
+                    </a>
+                </div>
+            </div>
+            
+
+            <ul class="comment-list" id="comment-list-2"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 زُمُرُّد. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        
+        function toggleLike(counterId, button) {
+            var counter = document.getElementById(counterId);
+            var currentCount = parseInt(counter.textContent);
+
+            if (button.classList.contains('liked')) {
+                counter.textContent = currentCount - 1;
+                button.classList.remove('liked');
+            } else {
+                counter.textContent = currentCount + 1;
+                button.classList.add('liked');
+            }
+        }
+
+        
+        function addComment(commentListId, commentInputId) {
+            var commentList = document.getElementById(commentListId);
+            var commentInput = document.getElementById(commentInputId);
+            var commentCount = document.getElementById('comment-count-' + commentListId.split('-')[2]);
+
+            if (commentInput.value.trim() !== "") {
+                var newComment = document.createElement("li");
+                newComment.className = "comment";
+
+                
+                var editDeleteContainer = document.createElement("div");
+                editDeleteContainer.className = "edit-delete";
+
+                var editButton = document.createElement("button");
+                editButton.textContent = "تعديل";
+                editButton.onclick = function () {
+                    var updatedText = prompt("تعديل التعليق:", newComment.textContent.replace("تعديلحذف", ""));
+                    if (updatedText !== null) {
+                        newComment.firstChild.nodeValue = "Anonymous: " + updatedText;
+                    }
+                };
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "حذف";
+                deleteButton.onclick = function () {
+                    commentList.removeChild(newComment);
+                    commentCount.textContent = commentList.children.length;
+                };
+
+                editDeleteContainer.appendChild(editButton);
+                editDeleteContainer.appendChild(deleteButton);
+
+                newComment.textContent = "Anonymous: " + commentInput.value;
+                newComment.appendChild(editDeleteContainer);
+
+                commentList.appendChild(newComment);
+                commentInput.value = ""; 
+
+                
+                commentCount.textContent = commentList.children.length;
+            }
+        }
+
+        
+        function toggleComments(commentListId) {
+            var commentList = document.getElementById(commentListId);
+            var displayStyle = commentList.style.display === "none" ? "block" : "none";
+            commentList.style.display = displayStyle;
+        }
+    </script>
+    
+
+</body>
+</html>
+
+

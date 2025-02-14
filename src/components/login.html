@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      background-color: #f3f3f3;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-box {
+      width: 350px;
+      padding: 30px;
+      background: #ffffff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .login-box h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .form-group button {
+            width: calc(70% - 20px);
+            padding: 10px;
+            background-color: #750a45;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #d16ebc;
+        }
+
+        .signup-link {
+            margin-top: 10px;
+        }
+
+        .signup-link a {
+            color: rgb(0, 152, 137);
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+      
+    
+  </style>
+</head>
+
+<body>
+  <div class="login-box">
+    <h1>حسابك</h1>
+    <form action="#" method="POST">
+      <input type="text" name="username" placeholder="اسم المستخدم" required>
+      <input type="password" name="password" placeholder="كلمة المرور" required>
+    <div class="form-group">
+      <button type="submit">تسجيل الدخول</button>
+    </div> 
+      <div class="signup-link">
+        <a href="l'email.html">* نسيت كلمة المرور؟</a>
+    </div>
+   
+    
+      <div class="signup-link">
+        * ليس لديك حساب؟ 
+         <a href="signup.html">إنشاء حساب</a>
+     </div>
+    </form>
+  </div>
+
+</body>
+</html>
