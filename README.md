@@ -1,3 +1,3 @@
 # Zumordah
-![reading](./pic.jpeg)
+![reading](./pic.png)
  
